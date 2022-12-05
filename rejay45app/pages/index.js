@@ -13,11 +13,13 @@ export default function Home() {
             </Head> 
             <div className={styles.container}>
                 <img src="/images/logo.png" alt="rejay45logo" className={styles.rejay45logo} />
-                <div className="menubars">
-                    <Link href="" className={styles.links}>Home</Link>
-                    <Link href="" className={styles.links}>About</Link>
-                    <Link href="" className={styles.links}>Services</Link>
-                    <Link href="" className={styles.links}>Contact</Link>
+                <div className={styles.menubars}>
+                    <div className={styles.container1}>
+                        <Link href="" className={styles.links}>Home</Link>
+                        <Link href="" className={styles.links}>About</Link>
+                        <Link href="" className={styles.links}>Services</Link>
+                        <Link href="" className={styles.links}>Contact</Link>
+                    </div>
                 </div>
             </div>
         </div>)

@@ -4,6 +4,7 @@ import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import React, {useState} from 'react'
+import { motion } from "framer-motion"
 
 export default function Home() {
     const [show,setShow]=useState(true)
@@ -13,6 +14,7 @@ export default function Home() {
                 <title> Home: Rejay45 </title> 
                 <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon" />
             </Head> 
+            
             <div className={styles.container}>
                 <img src="/images/logo.png" alt="rejay45logo" className={styles.rejay45logo} />
                 <div className={styles.menubars}>

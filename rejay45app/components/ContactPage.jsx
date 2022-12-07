@@ -54,7 +54,7 @@ const ContactPage = () => {
                             </a>
                         </div>
                         <div className={styles.pic1}>
-                            <a href="https://github.com/CyrineOsorio" target="_blank">
+                            <a href="https://github.com/CyrineOsorio/CPET17-L_Rejay45.git" target="_blank">
                                 <img src="/images/20.png" alt="" className={styles.img1} />
                                 <h3>Github</h3> 
                             </a>

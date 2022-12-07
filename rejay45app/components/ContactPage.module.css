@@ -1,3 +1,5 @@
+/* navbar css */
+
 .container {
     display: flex;
     background-color: #1B1B1B;
@@ -120,5 +122,151 @@
 @media only screen and (min-width: 1000px) {
     .container2 {
         display: none;
+    }
+}
+
+
+/* body css */
+
+.cont {
+    top: 0;
+    position: sticky;
+    z-index: 101;
+}
+
+.body {
+    background-color: #1B1B1B;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerServices {
+    display: grid;
+    border-radius: 20px;
+    width: 900px;
+    height: 450px;
+    background: linear-gradient(90deg, rgba(92, 225, 230, 1) 0%, rgba(203, 108, 230, 1) 100%);
+}
+
+.contleft {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelbox {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+}
+
+.label {
+    display: grid;
+    text-align: center;
+    width: 90%;
+    margin: 0;
+}
+
+.label>h1 {
+    font-size: 70px;
+    color: white;
+    margin: 0;
+}
+
+.label>h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 300;
+}
+
+.label>p {
+    font-size: 15px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.linya {
+    align-self: flex-end;
+    justify-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 6px;
+    background-color: #CB6CE6;
+    border-radius: 10px;
+}
+
+.button {
+    margin-top: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.button>button {
+    border: none;
+    background-color: #ffffff;
+    color: #1B1B1B;
+    font-weight: 700;
+    width: 50%;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.pic1 {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+}
+
+.pic1>h3,
+.pic1>a {
+    color: white;
+}
+
+.img1 {
+    width: 200px;
+    height: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+    .body {
+        height: fit-content;
+    }
+    .containerServices {
+        margin: 30px 0 30px 0;
+        width: 90%;
+        height: fit-content;
+        display: grid;
+        background: linear-gradient(0deg, rgba(92, 225, 230, 1) 0%, rgba(203, 108, 230, 1) 100%);
+    }
+    .contleft {
+        display: grid;
+    }
+    .contleft,
+    .labelbox {
+        width: 100%;
+        height: 100%;
+    }
+    .linya {
+        align-self: center;
+        justify-self: center;
+        background-color: #bb3cdf;
+    }
+    .img1 {
+        width: 250px;
+        height: auto;
+    }
+    .label>h1 {
+        font-size: 50px;
     }
 }

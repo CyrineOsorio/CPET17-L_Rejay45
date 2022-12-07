@@ -95,9 +95,11 @@
 .pic1 {
     display: grid;
     justify-items: center;
+    text-align: center;
 }
 
-.pic1>h3 {
+.pic1>h3,
+.pic1>a {
     color: white;
 }
 

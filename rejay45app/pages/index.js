@@ -19,49 +19,40 @@ export default function Home() {
             </Head> 
            
             <div className={styles.cont}>
-                <HomePage/>
+                <Navbar/>
             </div>
-            {/* <div className={styles.body}>
-                <div className={styles.containerabout}>
+            <div className={styles.body}>
+                <div className={styles.containerServices}>
                     <div className={styles.labelbox}>
                         <div className={styles.label}>
-                            <h1>About Us</h1>
+                            <h1>What We <span style={{color:'#1B1B1B'}}>DO.</span></h1>
                             <div className={styles.linya}></div>
-                            <p>Our team of excellent and experts at marketing, web creation, and digital designs are all here to help you with your business.
-                            </p>  
-                            <h3>Our Team</h3>
+                          
                         </div>
                     </div>
                     <div className={styles.contleft}>
                         <div className={styles.pic1}>
-                            <img src="/images/8.png" alt="" className={styles.img1} />
-                            <h3>Renshi</h3> 
+                            <img src="/images/11.png" alt="" className={styles.img1} />
+                            <h3>Digital Marketing</h3> 
                         </div>
                         <div className={styles.pic1}>
-                            <img src="/images/3.png" alt="" className={styles.img1} />
-                            <h3>Rey</h3> 
+                            <img src="/images/12.png" alt="" className={styles.img1} />
+                            <h3>Brand Labeling</h3> 
                         </div>
                         <div className={styles.pic1}>
-                            <img src="/images/4.png" alt="" className={styles.img1} />
-                            <h3>Cyrine</h3> 
+                            <img src="/images/13.png" alt="" className={styles.img1} />
+                            <h3>Web Development</h3> 
                         </div>
                         <div className={styles.pic1}>
-                            <img src="/images/7.png" alt="" className={styles.img1} />
-                            <h3>Rejay</h3> 
+                            <img src="/images/14.png" alt="" className={styles.img1} />
+                            <h3>UI/UX Designing</h3> 
                         </div>
-                        <div className={styles.pic1}>
-                            <img src="/images/6.png" alt="" className={styles.img1} />
-                            <h3>Aspher</h3> 
-                        </div>
-                        <div className={styles.pic1}>
-                            <img src="/images/5.png" alt="" className={styles.img1} />
-                            <h3>Mark</h3> 
-                        </div>
+                        
                     </div>
                     
                 </div>
                 
-            </div> */}
+            </div>
         </div>)
         
 }

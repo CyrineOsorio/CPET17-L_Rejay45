@@ -1,0 +1,122 @@
+.container {
+    display: flex;
+    background-color: #1B1B1B;
+    height: 70px;
+    padding: 0 10% 0 10%;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+    top: 0;
+    position: sticky;
+    z-index: 101;
+}
+
+.rejay45logo {
+    width: auto;
+    height: 100%;
+}
+
+.menubars {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.links1,
+.links2,
+.links3,
+.links4,
+.links5,
+.links6,
+.links7,
+.links8 {
+    display: flex;
+    color: #5CE1E6;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.links1:hover,
+.links2:hover,
+.links3:hover,
+.links4:hover,
+.links5:hover,
+.links6:hover,
+.links7:hover,
+.links8:hover {
+    color: #CB6CE6;
+}
+
+.links1,
+.links5 {
+    border-bottom: 3px solid #5CE1E6;
+    font-weight: 700;
+    color: #CB6CE6;
+}
+
+.hamborgerButton {
+    display: none;
+    width: 30px;
+    height: auto
+}
+
+.container2 {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: #303030;
+    transition: 0.2s;
+}
+
+.container2a {
+    display: grid;
+    grid-row-gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.button1 {
+    cursor: pointer;
+    background-color: #1B1B1B;
+    border: none;
+}
+
+.button1:hover {
+    background-color: #303030;
+    border-radius: 2px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        padding: 0 2% 0 2%;
+    }
+    .hamborgerButton {
+        display: flex;
+    }
+    .links1,
+    .links2,
+    .links3,
+    .links4 {
+        display: none;
+    }
+    .container1 {
+        justify-content: flex-end;
+    }
+    .container1 {
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .container2 {
+        display: none;
+    }
+}

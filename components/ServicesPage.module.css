@@ -1,0 +1,268 @@
+.container {
+    display: flex;
+    background-color: #1B1B1B;
+    height: 70px;
+    padding: 0 10% 0 10%;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+    top: 0;
+    position: sticky;
+    z-index: 101;
+}
+
+.rejay45logo {
+    width: auto;
+    height: 100%;
+}
+
+.menubars {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.links1,
+.links2,
+.links3,
+.links4,
+.links5,
+.links6,
+.links7,
+.links8 {
+    display: flex;
+    color: #5CE1E6;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.links1:hover,
+.links2:hover,
+.links3:hover,
+.links4:hover,
+.links5:hover,
+.links6:hover,
+.links7:hover,
+.links8:hover {
+    color: #CB6CE6;
+}
+
+.links3,
+.links7 {
+    border-bottom: 3px solid #5CE1E6;
+    font-weight: 700;
+    color: #CB6CE6;
+}
+
+.hamborgerButton {
+    display: none;
+    width: 30px;
+    height: auto
+}
+
+.container2 {
+    top: 0;
+    position: sticky;
+    z-index: 100;
+    display: flex;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    background-color: #303030;
+}
+
+.container2a {
+    display: grid;
+    grid-row-gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.button1 {
+    cursor: pointer;
+    background-color: #1B1B1B;
+    border: none;
+}
+
+.button1:hover {
+    background-color: #303030;
+    border-radius: 2px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container {
+        padding: 0 2% 0 2%;
+    }
+    .hamborgerButton {
+        display: flex;
+    }
+    .links1,
+    .links2,
+    .links3,
+    .links4 {
+        display: none;
+    }
+    .container1 {
+        justify-content: flex-end;
+    }
+    .container1 {
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .container2 {
+        display: none;
+    }
+}
+
+
+/* body css */
+
+.cont {
+    top: 0;
+    position: sticky;
+    z-index: 101;
+}
+
+.body {
+    background-color: #1B1B1B;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerServices {
+    display: grid;
+    border-radius: 20px;
+    width: 900px;
+    height: 450px;
+    background: linear-gradient(90deg, rgba(92, 225, 230, 1) 0%, rgba(203, 108, 230, 1) 100%);
+}
+
+.contleft {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.labelbox {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+}
+
+.label {
+    display: grid;
+    text-align: center;
+    width: 90%;
+    margin: 0;
+}
+
+.label>h1 {
+    font-size: 70px;
+    color: white;
+    margin: 0;
+}
+
+.label>h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 300;
+}
+
+.label>p {
+    font-size: 15px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.linya {
+    align-self: flex-end;
+    justify-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 6px;
+    background-color: #CB6CE6;
+    border-radius: 10px;
+}
+
+.button {
+    margin-top: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.button>button {
+    border: none;
+    background-color: #ffffff;
+    color: #1B1B1B;
+    font-weight: 700;
+    width: 50%;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.pic1 {
+    display: grid;
+    justify-items: center;
+}
+
+.pic1>h3 {
+    color: white;
+}
+
+.img1 {
+    width: 200px;
+    height: auto;
+}
+
+@media only screen and (max-width: 1000px) {
+    .body {
+        height: fit-content;
+    }
+    .containerServices {
+        margin: 30px 0 30px 0;
+        width: 90%;
+        height: fit-content;
+        display: grid;
+        background: linear-gradient(0deg, rgba(92, 225, 230, 1) 0%, rgba(203, 108, 230, 1) 100%);
+    }
+    .contleft {
+        display: grid;
+    }
+    .contleft,
+    .labelbox {
+        width: 100%;
+        height: 100%;
+    }
+    .linya {
+        align-self: center;
+        justify-self: center;
+        background-color: #bb3cdf;
+    }
+    .img1 {
+        width: 250px;
+        height: auto;
+    }
+    .label>h1 {
+        font-size: 50px;
+    }
+}

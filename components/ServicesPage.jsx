@@ -24,10 +24,10 @@ const ServicesPage = () => {
             </div>
             {show?<div className={styles.container2}>
                 <div className={styles.container2a}>
-                <Link href="http://localhost:3000/Home" className={styles.links5}>HOME</Link>
-                    <Link href="http://localhost:3000/About" className={styles.links6}>ABOUT</Link>
-                    <Link href="http://localhost:3000/Services" className={styles.links7}>SERVICES</Link>
-                    <Link href="http://localhost:3000/Contact" className={styles.links8}>CONTACT</Link>
+                    <Link href="/Home" className={styles.links5}>HOME</Link>
+                    <Link href="/About" className={styles.links6}>ABOUT</Link>
+                    <Link href="/Services" className={styles.links7}>SERVICES</Link>
+                    <Link href="/Contact" className={styles.links8}>CONTACT</Link>
                 </div>
             </div>:null}
 

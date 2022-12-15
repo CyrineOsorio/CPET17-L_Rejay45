@@ -42,25 +42,25 @@ const ContactPage = () => {
                     </div>
                     <div className={styles.contleft}>
                         <div className={styles.pic1}>
-                            <a href="https://www.facebook.com/osoriocyrine/" target="_blank">
+                            <a href="https://www.facebook.com/osoriocyrine/" target="_blank" rel="noreferrer">
                                 <img src="/images/16.png" alt="" className={styles.img1} />
                                 <h3>Facebook</h3> 
                             </a>
                         </div>
                         <div className={styles.pic1}>
-                            <a href="mailto:cyrine.osorio@gsfe.tupcavite.edu.ph?subject=Project Inquiry&body=We want to have an inquiry about web design" target="_blank">
+                            <a href="mailto:cyrine.osorio@gsfe.tupcavite.edu.ph?subject=Project Inquiry&body=We want to have an inquiry about web design" target="_blank" rel="noreferrer">
                                 <img src="/images/18.png" alt="" className={styles.img1} />
                                 <h3>Gmail</h3> 
                             </a>
                         </div>
                         <div className={styles.pic1}>
-                            <a href="https://github.com/CyrineOsorio/CPET17-L_Rejay45.git" target="_blank">
+                            <a href="https://github.com/CyrineOsorio/CPET17-L_Rejay45.git" target="_blank" rel="noreferrer">
                                 <img src="/images/20.png" alt="" className={styles.img1} />
                                 <h3>Github</h3> 
                             </a>
                         </div>
                         <div className={styles.pic1}>
-                            <a href="https://www.linkedin.com/in/cyrineosorio/" target="_blank">
+                            <a href="https://www.linkedin.com/in/cyrineosorio/" target="_blank" rel="noreferrer">
                                 <img src="/images/19.png" alt="" className={styles.img1} />
                                 <h3>LinkedIn</h3> 
                             </a>

@@ -12,7 +12,7 @@ const ServicesPage = () => {
                 <Image src="/images/logo.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
                 <div className={styles.menubars}>
                     <div className={styles.container1}>
-                    <Link href="/Home" className={styles.links1}>HOME</Link>
+                        <Link href="/Home" className={styles.links1}>HOME</Link>
                         <Link href="/About" className={styles.links2}>ABOUT</Link>
                         <Link href="/Services" className={styles.links3}>SERVICES</Link>
                         <Link href="/Contact" className={styles.links4}>CONTACT</Link>

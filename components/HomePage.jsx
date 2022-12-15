@@ -1,7 +1,7 @@
 import styles from "./HomePage.module.css"
 import React, {useState} from 'react'
 import Link from 'next/link'
-import Navbar from "./navbar";
+import Image from "next/image";
 
 const HomePage = () => {
     const [show,setShow]=useState(true)
@@ -9,14 +9,14 @@ const HomePage = () => {
         // NAVBAR
         <div>
             <div className={styles.container}>
-                <img src="/images/logo.png" alt="rejay45logo" className={styles.rejay45logo} />
+                <Image src="/images/logo.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
                 <div className={styles.menubars}>
                     <div className={styles.container1}>
                         <Link href="http://localhost:3000/Home" className={styles.links1}>HOME</Link>
                         <Link href="http://localhost:3000/About" className={styles.links2}>ABOUT</Link>
                         <Link href="http://localhost:3000/Services" className={styles.links3}>SERVICES</Link>
                         <Link href="http://localhost:3000/Contact" className={styles.links4}>CONTACT</Link>
-                        <button className={styles.button1} onClick={()=>setShow(!show)}><img src="/images/hamburger.png" alt="hamborgerButton" className={styles.hamborgerButton} /></button>
+                        <button className={styles.button1} onClick={()=>setShow(!show)}><Image src="/images/hamburger.png" alt="hamborgerButton" className={styles.hamborgerButton} width={1000} height={100} /></button>
                     </div>
                     
                 </div>
@@ -35,7 +35,7 @@ const HomePage = () => {
             <div className={styles.body}>
                 <div className={styles.containerhome}>
                     <div className={styles.contleft}>
-                        <img className={styles.image1} src="/images/1.png" alt="" />
+                        <Image className={styles.image1} src="/images/1.png" alt="" width={1000} height={100} />
                     </div>
                         <div className={styles.labelbox}>
                             <div className={styles.label}>

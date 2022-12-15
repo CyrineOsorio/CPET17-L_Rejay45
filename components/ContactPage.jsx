@@ -12,10 +12,10 @@ const ContactPage = () => {
                 <Image src="/images/logo.png" alt="rejay45logo" className={styles.rejay45logo} width={100} height={100} />
                 <div className={styles.menubars}>
                     <div className={styles.container1}>
-                        <Link href="http://localhost:3000/Home" className={styles.links1}>HOME</Link>
-                        <Link href="http://localhost:3000/About" className={styles.links2}>ABOUT</Link>
-                        <Link href="http://localhost:3000/Services" className={styles.links3}>SERVICES</Link>
-                        <Link href="http://localhost:3000/Contact" className={styles.links4}>CONTACT</Link>
+                        <Link href="/Home" className={styles.links1}>HOME</Link>
+                        <Link href="/About" className={styles.links2}>ABOUT</Link>
+                        <Link href="/Services" className={styles.links3}>SERVICES</Link>
+                        <Link href="/Contact" className={styles.links4}>CONTACT</Link>
                         <button className={styles.button1} onClick={()=>setShow(!show)}><Image src="/images/hamburger.png" alt="hamborgerButton" className={styles.hamborgerButton} width={100} height={100}/></button>
                     </div>
                     

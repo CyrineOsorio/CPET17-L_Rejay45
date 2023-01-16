@@ -11,7 +11,9 @@ const LoginPage = () => {
             </div>
             <div className={styles.body}>
                 <div className={styles.body1}>
-                    <div className={styles.body1_a}></div>
+                    <div className={styles.body1_a}>
+                    <Image src="/images/logingal.png" alt="logingal" className={styles.logingal} width={1000} height={100} />
+                    </div>
                     <div className={styles.body1_b}></div>
                 </div>
             </div>

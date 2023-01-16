@@ -46,7 +46,7 @@ const HomePage = () => {
                                 business needs, and target audience.
                                 </p>
                                 <div className={styles.button}>  
-                                    <button> <a href="https://www.canva.com/design/DAEw_tgTQ0Q/SFzGJ-Ids6t5Xd2FLD3oFg/view?utm_content=DAEw_tgTQ0Q&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank" rel="noreferrer"> View my CV</a></button>
+                                    <button> <a href="https://www.canva.com/design/DAEw_tgTQ0Q/SFzGJ-Ids6t5Xd2FLD3oFg/view?utm_content=DAEw_tgTQ0Q&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink" target="_blank" rel="noreferrer"> Try Our App </a></button>
                                 </div>      
                             </div>
                     </div>

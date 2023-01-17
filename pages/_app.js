@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { Roboto } from '@next/font/google'
+import {SessionProvider} from 'next-auth/react'
 
 const roboto = Roboto({
         weight: [
@@ -12,9 +13,12 @@ const roboto = Roboto({
 
 )
 
-function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps }
-    />
+function MyApp({ Component, pageProps, session }) {
+    return (
+        <SessionProvider session={session}>
+            <Component {...pageProps } />
+        </SessionProvider>
+    )
 }
 
 export default MyApp

@@ -54,7 +54,7 @@
     display: flex;
     height: 100%;
     width: 55%;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .body1_bcont {

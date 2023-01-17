@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import React, {useState} from 'react'
 import HomePage from '../components/HomePage'
 import LoginPage from '../components/LoginPage'
+import MainLanding from './MainLanding'
 
 export default function Home() {
 
@@ -14,7 +15,7 @@ export default function Home() {
             </Head> 
            
             <div>
-               <LoginPage/>
+               <HomePage/>
             </div>
         </div>)
         

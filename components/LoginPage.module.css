@@ -1,3 +1,8 @@
+.container {
+    background-color: #1B1B1B;
+    height: 100vh;
+}
+
 .logo {
     display: flex;
     background-color: #1B1B1B;
@@ -125,6 +130,7 @@
     height: 40px;
     font-size: 20px;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 .signinbutton {
@@ -133,6 +139,7 @@
     font-weight: 700;
     color: white;
     border: none;
+    cursor: pointer;
 }
 
 .ssogooglebutton {
@@ -141,6 +148,7 @@
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 1000px) {

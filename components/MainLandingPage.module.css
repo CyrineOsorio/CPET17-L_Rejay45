@@ -1,0 +1,109 @@
+.container {
+    background-color: #1B1B1B;
+    height: fit-content;
+}
+
+.logo {
+    display: flex;
+    background-color: #1B1B1B;
+    height: 70px;
+    padding: 0 10% 0 10%;
+    top: 0;
+    position: sticky;
+    z-index: 101;
+    align-items: center;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+}
+
+.rejay45logo {
+    width: auto;
+    height: 40px;
+}
+
+.menubars {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    height: 40px;
+}
+
+.logoutbutton {
+    background-color: #CB6CE6;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.body1 {
+    height: fit-content;
+    width: 80%;
+}
+
+.headbanner {
+    display: flex;
+    background: linear-gradient(18deg, rgba(92, 225, 230, 1) 35%, rgba(203, 108, 230, 1) 100%);
+    border-radius: 2px;
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    padding-left: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.filesfiles {
+    border-radius: 2px;
+    border: 1px solid #CB6CE6;
+    min-height: 400px;
+    height: fit-content;
+    margin-bottom: 30px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.lagayan {
+    display: grid;
+    width: 100%;
+    justify-items: center;
+    height: fit-content;
+}
+
+.PictureButton {
+    background-color: #CB6CE6;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    width: 100px;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.photocontainer {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .logo {
+        justify-content: center;
+    }
+}

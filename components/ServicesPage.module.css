@@ -64,7 +64,8 @@
 .hamborgerButton {
     display: none;
     width: 30px;
-    height: auto
+    height: auto;
+    cursor: pointer;
 }
 
 .container2 {
@@ -102,6 +103,7 @@
     }
     .hamborgerButton {
         display: flex;
+        cursor: pointer;
     }
     .links1,
     .links2,
@@ -207,6 +209,7 @@
     margin-top: 15px;
     width: 100%;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .button>button {
@@ -218,6 +221,7 @@
     height: 40px;
     font-size: 15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .pic1 {

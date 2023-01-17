@@ -5,7 +5,7 @@ import Image from "next/image"
 
 const LoginPage = () => {
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.logo}>
                 <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
             </div>
@@ -30,10 +30,10 @@ const LoginPage = () => {
                                     Password
                                     <input name="password" type="password" />
                                 </label>
-                                <Link href="#" className={styles.resetpasswordlink}>Reset Password</Link>
+                                <Link href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</Link>
                                 <button type="submit" className={styles.signinbutton}>Login</button>
                                 <button type="submit" className={styles.ssogooglebutton}>Continue with Google</button>
-                                <p> Don’t have an account? <Link href="/Home" className={styles.links5}>SIGN UP</Link> instead.</p>
+                                <p> Don’t have an account? <Link href="/Signup" className={styles.links5}>SIGN UP</Link> instead.</p>
                             </form>
                         </div>
                     </div>

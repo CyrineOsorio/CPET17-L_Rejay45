@@ -1,0 +1,12 @@
+import SignupPage from "../components/SignupPage";
+
+
+const Login = () => {
+  return (
+    <div>
+     <SignupPage/>
+    </div>
+  );
+};
+
+export default Login;

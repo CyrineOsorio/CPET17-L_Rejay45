@@ -14,7 +14,29 @@ const LoginPage = () => {
                     <div className={styles.body1_a}>
                     <Image src="/images/logingal.png" alt="logingal" className={styles.logingal} width={1000} height={100} />
                     </div>
-                    <div className={styles.body1_b}></div>
+                    <div className={styles.body1_b}>
+                        <div className={styles.body1_bcont}>
+                            <h1 className={styles.loginword}>LOGIN</h1>
+                            <div className={styles.linya}></div>
+                            <p>Sign in your account to take photos with your camera and save it to our app!
+                            </p>
+                            <form method="post">
+                                <input name="csrfToken" type="hidden"/>
+                                <label>
+                                    Email
+                                    <input name="username" type="text" />
+                                </label>
+                                <label>
+                                    Password
+                                    <input name="password" type="password" />
+                                </label>
+                                <Link href="#" className={styles.resetpasswordlink}>Reset Password</Link>
+                                <button type="submit" className={styles.signinbutton}>Login</button>
+                                <button type="submit" className={styles.ssogooglebutton}>Continue with Google</button>
+                                <p> Don’t have an account? <Link href="/Home" className={styles.links5}>SIGN UP</Link> instead.</p>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

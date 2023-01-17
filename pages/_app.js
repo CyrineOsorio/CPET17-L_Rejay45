@@ -2,7 +2,9 @@ import '../styles/globals.css'
 import { Roboto } from '@next/font/google'
 
 const roboto = Roboto({
-        weight: ['300',
+        weight: [
+            '100',
+            '300',
             '400',
             '700'
         ]

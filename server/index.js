@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const boddParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const expressSession = require('express-session');
@@ -11,8 +11,8 @@ const app = express();
 
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(boddParser.json());
+app.use(boddParser.urlencoded({ extended: true }));
 app.use(expressSession({ secret: 'mySecretKey', resave: false, saveUninitialized: false }));
 
 app.use(cors({
@@ -31,23 +31,24 @@ app.get('/', (req, res) => {
     res.send('hello world');
 });
 
-app.post('/SignupPage', (req, res) => {
+app.post('/SignupPage', async(req, res) => {
     const username = req.body.username;
+    console.log(username)
     const password = req.body.password;
 
-    const query = "INSERT INTO account ('username', 'password') VALUES (?, ?)";
+    const query = "INSERT INTO account (`username`, `password`) VALUES (?, ?)";
     const query2 = "SELECT * FROM account WHERE username = ?";
 
     db.query(query2, [username], (err, result) => {
         if(err) {throw err;}
         if(result.length > 0) {
-                res.send({message: "Username already exists"})
-            }
+                res.send({message: "Username already exists"});
+        }
         if(result.length === 0){
             const hashedPassword = bcrypt.hashSync(password, 10);
             db.query(query, [username, password], (err, result) => {
                 if(err) {throw err;}
-                res.send({message: "User Created"})
+                res.send({message: "User Created"});
                 
             })
         } 
@@ -56,5 +57,5 @@ app.post('/SignupPage', (req, res) => {
 });
 
 app.listen(3001, () => {
-    console.log('Server started on port 3000');
+    console.log('Server started on port 3001');
 });

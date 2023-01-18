@@ -2,10 +2,29 @@ import styles from "./SignupPage.module.css"
 import React from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { useState } from "react"
+import axios from "axios";
 
 const SignupPage = () => {
+
+    const [registerUsername, setRegisteredUsername] = useState('');
+    const [registerPassword, setRegisteredPassword] = useState('');
+
+    const register = () => {
+        axios({
+            method: "post",
+            data: {
+                username: registerUsername,
+                password: registerPassword
+            },
+            withCredentials: true,
+            url: 'http://localhost:3001/Signup'
+        }).then((res) => console.log(res)).catch((err) => console.log(err));
+    }
+
     return ( 
         <div className={styles.container}>
+            
             <div className={styles.logo}>
                 <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
             </div>
@@ -20,18 +39,13 @@ const SignupPage = () => {
                                 <input name="csrfToken" type="hidden"/>
                                 <label>
                                     Email
-                                    <input name="username" type="text" />
+                                    <input name="username" type="text" onChange={e => setRegisteredUsername(e.target.value)}/>
                                 </label>
                                 <label>
                                     Password
-                                    <input name="password" type="password" />
+                                    <input name="password" type="password" onChange={e => setRegisteredPassword(e.target.value)}/>
                                 </label>
-                                <label>
-                                    Confirm Password
-                                    <input name="password" type="password" />
-                                </label>
-                                <Link href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</Link>
-                                <button type="submit" className={styles.signinbutton}>Login</button>
+                                <button type="submit" className={styles.signinbutton} onClick={register}>Register</button>
                                 <button type="submit" className={styles.ssogooglebutton}>Continue with Google</button>
                                 <p>  Already have an account? <Link href="/Login" className={styles.links5}>LOGIN </Link> here.</p>
                             </form>

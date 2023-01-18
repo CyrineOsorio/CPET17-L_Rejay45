@@ -5,18 +5,21 @@ import Image from "next/image"
 import {useSession, signIn, signOut} from 'next-auth/react'
 import MainLandingPage from "./MainLandingPage"
 
+
+
+
 const LoginPage = () => {
     const {data: session} = useSession()
 
     if (session) {
         return (<div>
             <MainLandingPage/>
-            
         </div>
         )
     }
 
     else {
+        
         return (
             <div className={styles.container}>
                 <div className={styles.logo}>
@@ -52,6 +55,7 @@ const LoginPage = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
         )}
 };

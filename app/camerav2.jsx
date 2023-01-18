@@ -62,17 +62,21 @@ app.post('/upload', (req, res) => {
 
 app.get('/display', (req, res) => {
     // Select the last entry from the db
-    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 1;`,
+    let array = [];
+    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
         (err, results) => {
             try {
                 if (results.length > 0) {
+                    for (i = 0; i < results.length; i++) {
+                        array.unshift(results[i])
+                    }
                     // send a json response containg the image data (blob)
-                    res.json({ 'imgData': results[0]['filename'] });
+                    res.json({ 'imgData': array });
                 } else {
-                    res.json({ message: "Something went wrong." });
+                    res.json(null);
                 }
             } catch {
                 res.json({ message: err });
             }
-        })
+        });
 })

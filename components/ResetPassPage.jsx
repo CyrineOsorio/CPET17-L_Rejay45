@@ -3,6 +3,9 @@ import React from "react"
 import Link from "next/link"
 import Image from "next/image"
 
+// CommonJS
+const Swal = require('sweetalert2')
+
 const ResetPassPage = () => {
     // Handles the submit event on form submit.
   const ResetSubmit = async (event) => {
@@ -16,17 +19,29 @@ const ResetPassPage = () => {
     const confirm_password = event.target.confirm_password.value
 
     if ( old_password == null || old_password == '' ) {
-      alert("Enter your old password.");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "Enter your old password!",
+          });
       return
     }
 
     if ( new_password == null || new_password == '' ) {
-        alert("Enter your new password.");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "Enter your new password!",
+          });
         return
     }
 
     if ( new_password != confirm_password ) {
-      alert("Password don't match!");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "Password dosen't match!",
+          });
       return
     }
 
@@ -62,9 +77,17 @@ const ResetPassPage = () => {
     const result = await response.json()
 
     if ( result.error_code == 'ER_DUP_ENTRY' ) {
-      alert(result.message)
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: result.message,
+          });
     } else {
-      alert(`Resetting password successful.`)
+        Swal.fire({
+            icon: 'success',
+            title: 'Great!',
+            text: `Successfully changed the password`,
+          });
     }
   }
     return (

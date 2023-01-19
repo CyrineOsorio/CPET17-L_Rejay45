@@ -178,7 +178,7 @@ app.post('/resetpassword', async(req, res) => {
 // Logout
 app.get('/logout', (req, res) => {
     session = undefined;
-    res.redirect('http://localhost:3000');
+    res.redirect('http://localhost:3000/Login');
 });
 
 
@@ -218,42 +218,43 @@ app.post('/upload', (req, res) => {
 
 // Display Image on our web page
 app.get('/display', (req, res) => {
-    console.log(session)
-    if (session == undefined) {
-        res.json({ is_logged_in: false });
-    } else if (session != undefined) {
-        let pyshell = new PythonShell('camera.py')
-        pyshell.kill()
+    // console.log(session)
+    // if (session == undefined) {
+    //     res.json({ is_logged_in: false });
+    // } else if (session != undefined) {
+    //     res.json({ is_logged_in: true });
+    //     let pyshell = new PythonShell('camera.py')
+    //     pyshell.kill()
 
-        PythonShell.run('camera.py', null, function(err) {
-            if (err) {
-                throw err
+    //     PythonShell.run('camera.py', null, function(err) {
+    //         if (err) {
+    //             throw err
+    //         }
+    //         console.log('Motion Detector Terminated');
+    //     });
+    // }
+    // Select the last entry from the db
+    let array = [];
+    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
+        (err, results) => {
+            console.log(results)
+            try {
+                if (results.length > 0) {
+                    for (i = 0; i < results.length; i++) {
+                        array.unshift(results[i])
+                    }
+
+                    // send a json response containg the image data (blob)
+                    res.json({
+                        'imgData': array,
+                        is_logged_in: true
+                    });
+                } else {
+                    res.json({ message: "Something wen't wrong" });
+                }
+            } catch {
+                res.json({ message: err });
             }
-            console.log('Motion Detector Terminated');
         });
 
-        // Select the last entry from the db
-        let array = [];
-        connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
-            (err, results) => {
-                console.log(results)
-                try {
-                    if (results.length > 0) {
-                        for (i = 0; i < results.length; i++) {
-                            array.unshift(results[i])
-                        }
-
-                        // send a json response containg the image data (blob)
-                        res.json({
-                            'imgData': array,
-                            is_logged_in: true
-                        });
-                    } else {
-                        res.json({ message: "Something wen't wrong" });
-                    }
-                } catch {
-                    res.json({ message: err });
-                }
-            });
-    }
 });

@@ -3,7 +3,8 @@ import Link from "next/link"
 import Image from "next/image"
 import MainLandingPage from "./MainLandingPage"
 
-
+// CommonJS
+const Swal = require('sweetalert2')
 
 
 const LoginPage = () => {
@@ -18,12 +19,20 @@ const LoginPage = () => {
      const password = event.target.password.value
 
     if ( password == null || password == '' ) {
-      alert("Enter your password.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Enter your password!',
+      });
       return
     }
 
     if ( username == null || username == '' ) {
-      alert("Enter your username.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Enter your username!',
+      });
       return
     }
 
@@ -62,7 +71,12 @@ const LoginPage = () => {
     if ( result.message == 'Success' ) {
       window.location.replace("http://localhost:3000/MainLanding")
     } else {
-      alert(result.message)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: result.message,
+      });
+      return
     }
 } 
     return (

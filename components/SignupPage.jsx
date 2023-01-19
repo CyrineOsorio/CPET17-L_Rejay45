@@ -5,6 +5,9 @@ import Image from "next/image"
 import { useState } from "react"
 import axios from "axios";
 
+// CommonJS
+const Swal = require('sweetalert2')
+
 const SignupPage = () => {
 
      // Handles the submit event on form submit.
@@ -18,17 +21,30 @@ const SignupPage = () => {
     const password = event.target.password.value
     const confirm_password = event.target.confirm_password.value
 
+    if ( username == null || username == '' ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Enter a username!",
+      });
+      return
+    }
+
     if ( password == null || password == '' ) {
-      alert("Enter a password.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Enter a password!",
+      });
       return
     }
 
     if ( password != confirm_password ) {
-      alert("Password don't match!");
-      return
-    }
-    if ( username == null || username == '' ) {
-      alert("Enter a username.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: "Password dosen't match!",
+      });
       return
     }
 
@@ -65,9 +81,17 @@ const SignupPage = () => {
     const result = await response.json()
 
     if ( result.error_code == 'ER_DUP_ENTRY' ) {
-      alert(result.message)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: result.message,
+      });
     } else {
-      alert(`Registration successful for username ${result.username}. You will be redirected to login page.`)
+      Swal.fire({
+        icon: 'success',
+        title: 'Great!',
+        text: `Sucessfully created the account ${result.username}. You will be redirected to login page.`,
+      });
       window.location.replace("http://localhost:3000/Login")
     }
   }

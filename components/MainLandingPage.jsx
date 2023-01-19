@@ -9,8 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-export default function MainLanding() {
-
+export default function MainLanding(user) {
+    
     return (
     <div className={styles.container}>
     <ToastContainer />

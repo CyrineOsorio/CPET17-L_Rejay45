@@ -37,7 +37,7 @@ const LoginPage = () => {
     const JSONdata = JSON.stringify(data)
 
     // API endpoint where we send form data.
-    const endpoint = 'http://localhost:4000/login'
+    const endpoint = 'http://localhost:7000/login'
 
     // Form the request for sending data to the server.
     const options = {
@@ -110,7 +110,7 @@ export default LoginPage;
 
 export async function getStaticProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:4000/Login');
+    const res = await fetch('http://localhost:7000/Login');
   
     // Get the json response
     const data = await res.json();

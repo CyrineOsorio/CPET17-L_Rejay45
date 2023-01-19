@@ -10,7 +10,7 @@ const cors = require('cors')
 const sessions = require('express-session')
 const { PythonShell } = require('python-shell')
 const app = express();
-const port = 4000;
+const port = 7000;
 var session;
 
 // listen to port
@@ -197,13 +197,15 @@ app.get('/MainLanding', (req, res) => {
 // insert time when motion is detected using opencv
 app.post('/upload', (req, res) => {
 
-    var { var_time, file_path } = req.body;
+    var { var_time, file_path, file } = req.body;
 
     // save datetime, imgfile, into the db
     connection.query(`INSERT INTO ${db_table} (datetime, filename) VALUES (?, ?);`, [var_time, file_path],
         (err, result) => {
             try {
                 if (result.affectedRows > 0) {
+                    // Remove image file from the system to free some space
+                    fs.unlinkSync(file)
                     res.json({ data: "Success" });
                 } else {
                     res.json({ message: "Something went wrong." });

@@ -99,7 +99,7 @@ export default function MotionDetect({ data }) {
 
 export async function getStaticProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:4000/display');
+    const res = await fetch('http://localhost:7000/display');
 
     // Get the json response
     const data = await res.json();

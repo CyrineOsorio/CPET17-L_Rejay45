@@ -131,9 +131,9 @@ while True:
             base64img = convertToBinaryData(file_path)
 
             # Data that we will send in post request.
-            data = {"var_time": str(var_time), "file_path": str(base64img)}
+            data = {"var_time": str(var_time), "file_path": str(base64img), "file": str(file_path) }
             # The POST request to our node server
-            res = requests.post('http://localhost:4000/upload', json=data)
+            res = requests.post('http://localhost:7000/upload', json=data)
             # Display the json response
             # print(res.json())
 

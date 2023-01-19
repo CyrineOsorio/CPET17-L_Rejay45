@@ -42,7 +42,7 @@ const SignupPage = () => {
     const JSONdata = JSON.stringify(data)
 
     // API endpoint where we send form data.
-    const endpoint = 'http://localhost:4000/register'
+    const endpoint = 'http://localhost:7000/register'
 
     // Form the request for sending data to the server.
     const options = {
@@ -117,7 +117,7 @@ export default SignupPage;
 
 export async function getStaticProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:4000/signup');
+    const res = await fetch('http://localhost:7000/signup');
   
     // Get the json response
     const data = await res.json();

@@ -18,7 +18,7 @@ export default function MainLanding() {
             <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
             <div className={styles.menubars}>
                 <a href="http://localhost:3000/display" className={styles.logoutbutton}>Motion</a>
-                <a href="http://localhost:4000/logout" className={styles.logoutbutton}>Logout</a>
+                <a href="http://localhost:7000/logout" className={styles.logoutbutton}>Logout</a>
             </div>
         </div>
         
@@ -52,7 +52,7 @@ export default function MainLanding() {
 
 export async function getStaticProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:4000/MainLanding');
+    const res = await fetch('http://localhost:7000/MainLanding');
   
     // Get the json response
     const data = await res.json();

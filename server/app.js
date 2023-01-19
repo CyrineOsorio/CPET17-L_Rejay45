@@ -79,32 +79,32 @@ app.post('/upload', (req, res) => {
 })
 
 // Display Image on our web page
-app.get('/display', (req, res) => {
-    // Select the last entry from the db
-    let array = [];
-    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
-        (err, results) => {
-            try {
-                if (results.length > 0) {
-                    for (i = 0; i < results.length; i++) {
-                        array.unshift(results[i])
-                    }
-                    // send a json response containg the image data (blob)
-                    res.json({ 'imgData': array });
-                } else {
-                    res.json(null);
-                }
-            } catch {
-                res.json({ message: err });
-            }
-        });
-})
+// app.get('/display', (req, res) => {
+//     // Select the last entry from the db
+//     let array = [];
+//     connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
+//         (err, results) => {
+//             try {
+//                 if (results.length > 0) {
+//                     for (i = 0; i < results.length; i++) {
+//                         array.unshift(results[i])
+//                     }
+//                     // send a json response containg the image data (blob)
+//                     res.json({ 'imgData': array });
+//                 } else {
+//                     res.json(null);
+//                 }
+//             } catch {
+//                 res.json({ message: err });
+//             }
+//         });
+// })
 
 
 // Logout
 app.get('/logout', (req, res) => {
     session = undefined;
-    res.redirect('http://localhost:3000/');
+    res.redirect('http://localhost:3000');
 });
 
 
@@ -127,7 +127,7 @@ app.post('/register', async(req, res) => {
 });
 
 
-app.get('/', (req, res) => {
+app.get('/Login', (req, res) => {
     if (session == undefined) {
         res.json({ is_logged_in: false });
     } else if (session != undefined) {
@@ -146,8 +146,9 @@ app.get('/signup', (req, res) => {
 });
 
 
+
 // LogIn FORM
-app.post('/login_na', async(req, res) => {
+app.post('/login', async(req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -184,4 +185,27 @@ app.get('/MainLanding', (req, res) => {
     } else if (session != undefined) {
         res.json({ is_logged_in: true });
     }
+    // Select the last entry from the db
+    let array = [];
+    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC;`,
+        (err, results) => {
+            console.log(results)
+            try {
+                if (results.length > 0) {
+                    for (i = 0; i < results.length; i++) {
+                        array.unshift(results[i])
+                    }
+
+                    // send a json response containg the image data (blob)
+                    res.json({
+                        'imgData': array,
+                        is_logged_in: true
+                    });
+                } else {
+                    res.json({ message: "Something wen't wrong" });
+                }
+            } catch {
+                res.json({ message: err });
+            }
+        });
 });

@@ -35,10 +35,10 @@ export default function MainLanding() {
                 <div className={styles.filesfiles}>
                     <div className={styles.lagayan}>
                         <div className={styles.photocontainer}>
-                            <div className={styles.container}>
+                           
                                 <div className={styles.body1_a}>
                                     <Image src="/images/logingal.png" alt="logingal" className={styles.logingal} width={800} height={500} />
-                                    <div>
+                                    <div className={styles.paragraph}>
                                         <p>
                                              WebCam Motion Detector in Python
                                         </p>
@@ -50,7 +50,6 @@ export default function MainLanding() {
                                           
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>

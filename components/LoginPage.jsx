@@ -93,7 +93,7 @@ const LoginPage = () => {
                                     Password
                                     <input name="password" id="password" type="password" />
                                 </label>
-                                <Link href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</Link>
+                                <br />
                                 <button type="submit" className={styles.signinbutton}>Login</button>
                                 <p> Don’t have an account? <Link href="/Signup" className={styles.links5}>SIGN UP</Link> instead.</p>
                             </form>

@@ -57,57 +57,6 @@ app.use(sessions({
 }))
 
 
-
-// insert time when motion is detected using opencv
-app.post('/upload', (req, res) => {
-
-    var { var_time, file_path } = req.body;
-
-    // save datetime, imgfile, into the db
-    connection.query(`INSERT INTO ${db_table} (datetime, filename) VALUES (?, ?);`, [var_time, file_path],
-        (err, result) => {
-            try {
-                if (result.affectedRows > 0) {
-                    res.json({ data: "Success" });
-                } else {
-                    res.json({ message: "Something went wrong." });
-                }
-            } catch {
-                res.json({ message: err });
-            }
-        })
-})
-
-// Display Image on our web page
-app.get('/display', (req, res) => {
-    // Select the last entry from the db
-    let array = [];
-    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
-        (err, results) => {
-            try {
-                if (results.length > 0) {
-                    for (i = 0; i < results.length; i++) {
-                        array.unshift(results[i])
-                    }
-                    // send a json response containg the image data (blob)
-                    res.json({ 'imgData': array });
-                } else {
-                    res.json(null);
-                }
-            } catch {
-                res.json({ message: err });
-            }
-        });
-})
-
-
-// Logout
-app.get('/logout', (req, res) => {
-    session = undefined;
-    res.redirect('http://localhost:3000');
-});
-
-
 // SignUp Form
 app.post('/register', async(req, res) => {
     const username = req.body.username
@@ -178,24 +127,69 @@ app.post('/login', async(req, res) => {
 });
 
 
+// Logout
+app.get('/logout', (req, res) => {
+    session = undefined;
+    res.redirect('http://localhost:3000');
+});
+
+
+
+
 // Motion PAge
-app.get('/MainLanding', (req, res) => {
-    // Select the last entry from the db
-    let array = [];
-    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
-        (err, results) => {
+// insert time when motion is detected using opencv
+app.post('/upload', (req, res) => {
+
+    var { var_time, file_path } = req.body;
+
+    // save datetime, imgfile, into the db
+    connection.query(`INSERT INTO ${db_table} (datetime, filename) VALUES (?, ?);`, [var_time, file_path],
+        (err, result) => {
             try {
-                if (results.length > 0) {
-                    for (i = 0; i < results.length; i++) {
-                        array.unshift(results[i])
-                    }
-                    // send a json response containg the image data (blob)
-                    res.json({ 'imgData': array });
+                if (result.affectedRows > 0) {
+                    res.json({ data: "Success" });
                 } else {
-                    res.json(null);
+                    res.json({ message: "Something went wrong." });
                 }
             } catch {
                 res.json({ message: err });
             }
-        });
+        })
 })
+
+// Display Image on our web page
+app.get('/display', (req, res) => {
+    console.log(session)
+    if (session == undefined) {
+        res.json({ is_logged_in: false });
+    } else if (session != undefined) {
+        let pyshell = new PythonShell('capture.py')
+        pyshell.kill()
+
+        PythonShell.run('capture.py', null, function(err) {
+            if (err) {
+                throw err
+            }
+            console.log('Motion Detector Terminated');
+        });
+        // Select the last entry from the db
+        let array = [];
+        connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
+            (err, results) => {
+                try {
+                    if (results.length > 0) {
+                        for (i = 0; i < results.length; i++) {
+                            array.unshift(results[i])
+                        }
+                        // send a json response containg the image data (blob)
+                        res.json({ 'imgData': array });
+                    } else {
+                        res.json(null);
+                    }
+                } catch {
+                    res.json({ message: err });
+                }
+            });
+    }
+
+});

@@ -15,15 +15,23 @@ const ResetPassPage = () => {
                         <div className={styles.body1_bcont}>
                             <h1 className={styles.loginword}>Reset Password</h1>
                             <div className={styles.linya}></div>
-                            <p>For you to receive a one-time link via email to reset your password, you should be registered in our system first. <Link href="/Signup" className={styles.links5}>REGISTER </Link> here, if you are not yet a member.</p>
                             <form method="post">
                                 <input name="csrfToken" type="hidden"/>
+                                <br />
                                 <label>
-                                    Email
-                                    <input name="username" type="text" />
+                                    Old Password
+                                    <input name="old_password" id="old_password" type="password" />
                                 </label>
-                                <button type="submit" className={styles.signinbutton}>Send Email</button>
-                                <p> Go back to <Link href="/Login" className={styles.links5}>LOGIN </Link> page.</p>
+                                <label>
+                                    New Password
+                                    <input name="password" id="password" type="password" />
+                                </label>
+                                <label>
+                                    Confirm Password
+                                    <input name="confirm_password" id="confirm_password" type="password" />
+                                </label>
+                                <button type="submit" className={styles.signinbutton}>Change Password</button>
+                                <p> Go back to <Link href="/MainLanding" className={styles.links5}>Motion Detector </Link> page.</p>
                             </form>
                         </div>
                     </div>

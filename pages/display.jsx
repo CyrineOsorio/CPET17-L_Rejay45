@@ -7,7 +7,7 @@ import Link from "next/link"
 
 
 
-function MainLanding({ data }) {
+export default function MotionDetect({ data }) {
 
      // Render into HTML
      if ( data == null ) {
@@ -17,7 +17,7 @@ function MainLanding({ data }) {
                 <div className={styles.logo}>
                     <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
                     <div className={styles.menubars}>
-                        <a href="http://localhost:4000/logout" className={styles.logoutbutton}>Logout</a>
+                        <a href="http://localhost:3000/MainLanding" className={styles.logoutbutton}>Back</a>
                     </div>
                 </div>
                 
@@ -25,8 +25,7 @@ function MainLanding({ data }) {
                     <div className={styles.body1}>
                         <div className={styles.usercont}>
                             <div className={styles.headbanner}>
-                                <p>Welcome, !</p>
-                                <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
+                                <p>Motion Detector App</p>
                             </div>
                         </div>
                         <div className={styles.filesfiles}>
@@ -50,7 +49,7 @@ function MainLanding({ data }) {
         <div className={styles.logo}>
             <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
             <div className={styles.menubars}>
-                <a href="http://localhost:4000/logout" className={styles.logoutbutton}>Logout</a>
+            <a href="http://localhost:3000/MainLanding" className={styles.logoutbutton}>Back</a>
             </div>
         </div>
         
@@ -58,8 +57,7 @@ function MainLanding({ data }) {
             <div className={styles.body1}>
                 <div className={styles.usercont}>
                     <div className={styles.headbanner}>
-                      <p>Welcome, !</p>
-                      <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
+                      <p>Motion Detector App</p>
                     </div>
                 </div>
                 <div className={styles.filesfiles}>
@@ -98,18 +96,25 @@ function MainLanding({ data }) {
  );
 }
 
-export default MainLanding;
 
-
-export async function getServerSideProps() {
+export async function getStaticProps() {
     // Fetch data from the server
-    const response = await fetch('http://127.0.0.1:4000/display');
+    const res = await fetch('http://localhost:4000/display');
 
     // Get the json response
-    const data = await response.json();
-    return {
-        props: { data },
+    const data = await res.json();
+
+    // If user was not logged in, redirect to login page
+    if ( data.is_logged_in == false ) {
+      return {
+        redirect: {
+          destination: "/",
+          permanent: false,
+        },
+        props: {},
+      };
     }
- 
-    
-}
+
+    // If user was logged in, redirect to this current page
+    return { props: { data } }
+  }

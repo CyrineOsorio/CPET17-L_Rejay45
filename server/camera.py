@@ -118,23 +118,27 @@ while True:
 
     # Appending Start time of motion
     if motion_list[-1] == 1 and motion_list[-2] == 0:
-        var_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        filename = var_time + '.jpg'
+        try:
+            var_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            filename = var_time + '.jpg'
+            
+            # Save the captured frame
+            cv2.imwrite(filename, frame)
         
-        # Save the captured frame
-        cv2.imwrite(filename, frame)
-       
-        # Get the absolute path of saved image (frame)
-        file_path = os.path.abspath(filename)
+            # Get the absolute path of saved image (frame)
+            file_path = os.path.abspath(filename)
 
-        base64img = convertToBinaryData(file_path)
+            base64img = convertToBinaryData(file_path)
 
-        # Data that we will send in post request.
-        data = {"var_time": str(var_time), "file_path": str(base64img)}
-        # The POST request to our node server
-        res = requests.post('http://localhost:4000/upload', json=data)
-        # Display the json response
-        # print(res.json())
+            # Data that we will send in post request.
+            data = {"var_time": str(var_time), "file_path": str(base64img)}
+            # The POST request to our node server
+            res = requests.post('http://localhost:4000/upload', json=data)
+            # Display the json response
+            # print(res.json())
+
+        except requests.exceptions.ConnectionError as e:
+            print("Couldn't connect to the server!")
 
 
     # if q entered whole process will stop   

@@ -94,7 +94,7 @@ const ResetPassPage = () => {
                                     <input name="confirm_password" id="confirm_password" type="password" />
                                 </label>
                                 <button type="submit" className={styles.signinbutton}>Change Password</button>
-                                <p> Go back to <Link href="/MainLanding" className={styles.links5}>Motion Detector </Link> page.</p>
+                                <p> Go back to <Link href="/MainLanding" className={styles.links5}>Main</Link> page.</p>
                             </form>
                         </div>
                     </div>

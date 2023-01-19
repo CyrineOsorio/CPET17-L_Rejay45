@@ -64,6 +64,11 @@ function MainLanding({ data }) {
                         <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
                     </div>
                 </div>
+
+                <div>
+                    <a href="http://localhost:4000/" className={styles.logoutbutton}>Click Me!</a>
+                </div>
+
                 <div className={styles.filesfiles}>
                     <div className={styles.lagayan}>
                         <div className={styles.photocontainer}>

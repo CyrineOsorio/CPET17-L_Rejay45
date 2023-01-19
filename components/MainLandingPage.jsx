@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-export default function MainLanding(user) {
+export default function MainLanding() {
     
     return (
     <div className={styles.container}>
@@ -35,10 +35,22 @@ export default function MainLanding(user) {
                 <div className={styles.filesfiles}>
                     <div className={styles.lagayan}>
                         <div className={styles.photocontainer}>
-                        
                             <div className={styles.container}>
+                                <div className={styles.body1_a}>
+                                    <Image src="/images/logingal.png" alt="logingal" className={styles.logingal} width={800} height={500} />
+                                    <div>
+                                        <p>
+                                             WebCam Motion Detector in Python
+                                        </p>
+                                        <p>
+                                            This python program will allow you to detect motion and also store the date & time detected.
+                                        </p> 
+                                        <p>
+                                            <a href="http://localhost:3000/display" className={styles.tryme_btn}>Motion</a>
+                                        </p>      
+                                    </div>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

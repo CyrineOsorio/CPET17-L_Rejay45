@@ -45,9 +45,9 @@ export default function MainLanding() {
                                         <p>
                                             This python program will allow you to detect motion and also store the date & time detected.
                                         </p> 
-                                        <p>
-                                            <a href="http://localhost:3000/display" className={styles.tryme_btn}>Motion</a>
-                                        </p>      
+                                        <br />
+                                        <a href="http://localhost:3000/display" className={styles.tryme_btn}>Motion</a>
+                                          
                                     </div>
                                 </div>
                             </div>

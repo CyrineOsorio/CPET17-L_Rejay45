@@ -126,6 +126,54 @@ app.post('/login', async(req, res) => {
         });
 });
 
+// Reset Password
+app.get('/reset', (req, res) => {
+    if (session == undefined) {
+        res.json({ is_logged_in: false });
+    } else if (session != undefined) {
+        res.json({ is_logged_in: true });
+    }
+});
+
+// Reset Password
+app.post('/resetpassword', async(req, res) => {
+    const username = session.username;
+    const old_password = req.body.old_password;
+    const new_password = req.body.new_password;
+
+    connection.query(`SELECT * FROM ${db_table1} WHERE username=?`, [username],
+        (err, results) => {
+            try {
+                if (results == []) {
+                    res.json({ message: "Username doesn't exists" });
+                } else {
+                    // Check if user password was correct
+                    bcrypt.compare(old_password, results[0].password, function(err, result) {
+                        if (err) throw err;
+                        if (result == true) {
+                            // If user password was correct, hash the new password and update to database
+                            bcrypt.hash(new_password, saltRounds, function(err, hash) {
+                                connection.query(`UPDATE ${db_table1} SET password=? WHERE username=?;`, [hash, username],
+                                    (err, result) => {
+                                        try {
+                                            res.json({ message: 'Success' });
+                                        } catch {
+                                            res.json({ error_code: err.code, message: "Try again." });
+                                        }
+                                    });
+                            });
+                        } else {
+                            res.json({ message: 'Wrong Password', comment: 'Wrong password' });
+                        }
+                    });
+                }
+
+            } catch {
+                res.json({ message: 'Error', comment: err });
+            }
+        });
+});
+
 
 // Logout
 app.get('/logout', (req, res) => {

@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-function MainLandingPage({ data }) {
+function MainLanding({ data }) {
 
      // Render into HTML
      if ( data == null ) {
@@ -61,26 +61,28 @@ function MainLandingPage({ data }) {
                 <div className={styles.filesfiles}>
                     <div className={styles.lagayan}>
                         <div className={styles.photocontainer}>
-                            {data.imgData.map(function(imgData) {
-                            // Get the image data
-                            let image = imgData['filename']['data'];
-            
-                            // Convert into blob into string with charset=utf-8
-                            let base64Image = Buffer.from(image, 'base64').toString('utf-8');
-            
-                            // Configure the image tag attribute (src)
-                            let imgSrc = "data:image/png;base64," + base64Image;
-                            
-                            // Get the date time
-                            let dt = imgData['datetime'];
-                            
-                            return (
-                                <div className={styles.container}>
-                                    <p>DateTime Taken: {dt}</p>
-                                    <img src={imgSrc}/>
-                                </div>
-                            )
-                        })}  
+                       
+                        {data.imgData.map(function(imgData) {
+                        // Get the image data
+                        let image = imgData['filename']['data'];
+        
+                        // Convert into blob into string with charset=utf-8
+                        let base64Image = Buffer.from(image, 'base64').toString('utf-8');
+        
+                        // Configure the image tag attribute (src)
+                        let imgSrc = "data:image/png;base64," + base64Image;
+                        
+                        // Get the date time
+                        let dt = imgData['datetime'];
+                        
+                        return (
+                            <div className={styles.container}>
+                                <p>DateTime Taken: {dt}</p>
+                                <img src={imgSrc}/>
+                            </div>
+                        )
+                    })}  
+
                         </div>
                     </div>
                 </div>
@@ -92,27 +94,18 @@ function MainLandingPage({ data }) {
  );
 }
 
-export default MainLandingPage;
+export default MainLanding;
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:4000/MainLanding');
+    const response = await fetch('http://127.0.0.1:4000/display');
 
     // Get the json response
-    const data = await res.json();
-
-    // If user was not logged in, redirect to login page
-    if ( data.is_logged_in == false ) {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: false,
-        },
-        props: {},
-      };
+    const data = await response.json();
+    return {
+        props: { data },
     }
-
-    // If user was logged in, redirect to this current page
-    return { props: { data } }
-  }
+ 
+    
+}

@@ -3,6 +3,7 @@ import React from "react"
 import Image from "next/image"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Link from "next/link"
 
 
 
@@ -23,7 +24,10 @@ function MainLanding({ data }) {
                 <div className={styles.body}>
                     <div className={styles.body1}>
                         <div className={styles.usercont}>
-                            <div className={styles.headbanner}>Welcome, !</div>
+                            <div className={styles.headbanner}>
+                                <p>Welcome, !</p>
+                                <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
+                            </div>
                         </div>
                         <div className={styles.filesfiles}>
                             <div className={styles.lagayan}>
@@ -55,7 +59,7 @@ function MainLanding({ data }) {
                 <div className={styles.usercont}>
                     <div className={styles.headbanner}>
                       <p>Welcome, !</p>
-                      {/* <Link href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</Link> */}
+                      <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
                     </div>
                 </div>
                 <div className={styles.filesfiles}>

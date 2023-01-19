@@ -159,37 +159,22 @@ app.post('/upload', (req, res) => {
 
 // Display Image on our web page
 app.get('/display', (req, res) => {
-    console.log(session)
-    if (session == undefined) {
-        res.json({ is_logged_in: false });
-    } else if (session != undefined) {
-        let pyshell = new PythonShell('capture.py')
-        pyshell.kill()
-
-        PythonShell.run('capture.py', null, function(err) {
-            if (err) {
-                throw err
-            }
-            console.log('Motion Detector Terminated');
-        });
-        // Select the last entry from the db
-        let array = [];
-        connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
-            (err, results) => {
-                try {
-                    if (results.length > 0) {
-                        for (i = 0; i < results.length; i++) {
-                            array.unshift(results[i])
-                        }
-                        // send a json response containg the image data (blob)
-                        res.json({ 'imgData': array });
-                    } else {
-                        res.json(null);
+    // Select the last entry from the db
+    let array = [];
+    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
+        (err, results) => {
+            try {
+                if (results.length > 0) {
+                    for (i = 0; i < results.length; i++) {
+                        array.unshift(results[i])
                     }
-                } catch {
-                    res.json({ message: err });
+                    // send a json response containg the image data (blob)
+                    res.json({ 'imgData': array });
+                } else {
+                    res.json(null);
                 }
-            });
-    }
-
-});
+            } catch {
+                res.json({ message: err });
+            }
+        });
+})

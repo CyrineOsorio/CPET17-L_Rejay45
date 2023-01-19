@@ -1,8 +1,6 @@
 import styles from "./LoginPage.module.css"
-import react from "react"
 import Link from "next/link"
 import Image from "next/image"
-import {useSession, signIn, signOut} from 'next-auth/react'
 import MainLandingPage from "./MainLandingPage"
 
 

@@ -28,7 +28,7 @@ function MainLanding({ data }) {
                         <div className={styles.usercont}>
                             <div className={styles.headbanner}>
                                 <p>Welcome, !</p>
-                                {/* <Link href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</Link> */}
+                                <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
                             </div>
                         </div>
                         <div className={styles.filesfiles}>
@@ -59,7 +59,10 @@ function MainLanding({ data }) {
         <div className={styles.body}>
             <div className={styles.body1}>
                 <div className={styles.usercont}>
-                    <div className={styles.headbanner}>Welcome, !</div>
+                    <div className={styles.headbanner}>
+                        <p>Welcome, !</p>
+                        <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
+                    </div>
                 </div>
                 <div className={styles.filesfiles}>
                     <div className={styles.lagayan}>

@@ -236,7 +236,7 @@ app.get('/display', (req, res) => {
 
     // Select the last entry from the db
     let array = [];
-    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 1;`,
+    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 2;`,
         (err, results) => {
             console.log(results)
             try {

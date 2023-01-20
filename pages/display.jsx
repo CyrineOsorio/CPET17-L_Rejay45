@@ -36,9 +36,7 @@ export default function MotionDetect({ data }) {
                             </div>
                         </div>
                     </div>
-                    
                 </div>
-                
             </div>
         )
     }

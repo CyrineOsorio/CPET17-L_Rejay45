@@ -9,7 +9,7 @@ const Swal = require('sweetalert2')
 
 const LoginPage = () => {
     // Handles the submit event on form submit.
-  const login = async (event) => {
+  const LoginSubmit = async (event) => {
 
     // Stop the form from submitting and refreshing the page.
     event.preventDefault()
@@ -46,7 +46,7 @@ const LoginPage = () => {
     const JSONdata = JSON.stringify(data)
 
     // API endpoint where we send form data.
-    const endpoint = 'http://localhost:7000/login'
+    const endpoint = 'http://localhost:7000/login_account'
 
     // Form the request for sending data to the server.
     const options = {
@@ -95,7 +95,7 @@ const LoginPage = () => {
                             <div className={styles.linya}></div>
                             <p>Sign in your account to take photos with your camera and save it to our app!
                             </p>
-                            <form method="post" onSubmit={login}>
+                            <form method="post" onSubmit={LoginSubmit}>
                                 <input name="csrfToken" type="hidden"/>
                                 <label>
                                     Username

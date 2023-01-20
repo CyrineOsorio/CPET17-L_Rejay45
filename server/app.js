@@ -97,7 +97,7 @@ app.get('/signup', (req, res) => {
 
 
 // LogIn FORM
-app.post('/login', async(req, res) => {
+app.post('/login_account', async(req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 

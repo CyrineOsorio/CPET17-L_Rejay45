@@ -1,7 +1,6 @@
 import styles from "./LoginPage.module.css"
 import Link from "next/link"
 import Image from "next/image"
-import MainLandingPage from "./MainLandingPage"
 
 // CommonJS
 const Swal = require('sweetalert2')

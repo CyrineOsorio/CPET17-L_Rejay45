@@ -1,9 +1,6 @@
 import styles from "./MainLandingPage.module.css"
 import React from "react"
-import Link from "next/link"
 import Image from "next/image"
-import {useSession, signOut} from 'next-auth/react'
-import LoginPage from "../components/LoginPage";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

@@ -76,28 +76,9 @@ app.post('/register', async(req, res) => {
 });
 
 
-app.get('/Login', (req, res) => {
-    if (session == undefined) {
-        res.json({ is_logged_in: false });
-    } else if (session != undefined) {
-        res.json({ is_logged_in: true });
-    }
-});
-
-
-
-app.get('/signup', (req, res) => {
-    if (session == undefined) {
-        res.json({ is_logged_in: false });
-    } else if (session != undefined) {
-        res.json({ is_logged_in: true });
-    }
-});
-
-
-
 // LogIn FORM
 app.post('/login_account', async(req, res) => {
+    console.log(session);
     const username = req.body.username;
     const password = req.body.password;
 
@@ -126,20 +107,13 @@ app.post('/login_account', async(req, res) => {
         });
 });
 
-// Reset Password
-app.get('/reset', (req, res) => {
-    if (session == undefined) {
-        res.json({ is_logged_in: false });
-    } else if (session != undefined) {
-        res.json({ is_logged_in: true });
-    }
-});
 
 // Reset Password
 app.post('/resetpassword', async(req, res) => {
     const username = session.username;
     const old_password = req.body.old_password;
     const new_password = req.body.new_password;
+
 
     connection.query(`SELECT * FROM ${db_table1} WHERE username=?`, [username],
         (err, results) => {
@@ -174,24 +148,6 @@ app.post('/resetpassword', async(req, res) => {
         });
 });
 
-
-// Logout
-app.get('/logout', (req, res) => {
-    session = undefined;
-    res.redirect('http://localhost:3000/Login');
-});
-
-
-
-
-// Motion PAge
-app.get('/MainLanding', (req, res) => {
-    if (session == undefined) {
-        res.json({ is_logged_in: false });
-    } else if (session != undefined) {
-        res.json({ is_logged_in: true });
-    }
-});
 
 
 // insert time when motion is detected using opencv
@@ -268,4 +224,49 @@ app.get('/display', (req, res) => {
                 }
             });
     });
+});
+
+
+
+app.get('/signup', (req, res) => {
+    if (session == undefined) {
+        res.json({ is_logged_in: false });
+    } else if (session != undefined) {
+        res.json({ is_logged_in: true });
+    }
+});
+
+
+app.get('/Login', (req, res) => {
+    if (session == undefined) {
+        res.json({ is_logged_in: false });
+    } else if (session != undefined) {
+        res.json({ is_logged_in: true });
+    }
+});
+
+
+app.get('/reset', (req, res) => {
+    if (session == undefined) {
+        res.json({ is_logged_in: false });
+    } else if (session != undefined) {
+        res.json({ is_logged_in: true });
+    }
+});
+
+
+app.get('/MainLanding', (req, res) => {
+    console.log(session);
+    if (session == undefined) {
+        res.json({ is_logged_in: false });
+    } else if (session != undefined) {
+        res.json({ is_logged_in: true });
+    }
+});
+
+
+
+app.get('/logout', (req, res) => {
+    session = undefined;
+    res.redirect('http://localhost:3000/Login');
 });

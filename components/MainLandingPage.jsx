@@ -17,7 +17,7 @@ export default function MainLanding() {
         <div className={styles.logo}>
             <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
             <div className={styles.menubars}>
-                <a href="http://localhost:3000/display" className={styles.logoutbutton}>Motion</a>
+                {/* <a href="http://localhost:3000/display" className={styles.logoutbutton}>Motion</a> */}
                 <a href="http://localhost:7000/logout" className={styles.logoutbutton}>Logout</a>
             </div>
         </div>

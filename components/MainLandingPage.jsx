@@ -1,7 +1,7 @@
 import styles from "./MainLandingPage.module.css"
 import React from "react"
 import Image from "next/image"
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, collapseToast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -64,6 +64,8 @@ export async function getStaticProps() {
   
     // Get the json response
     const data = await res.json();
+
+    console.log(data)
     
     // If user was not logged in, go to login page
     if ( data.is_logged_in == false ) {

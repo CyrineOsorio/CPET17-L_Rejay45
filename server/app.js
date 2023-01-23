@@ -173,36 +173,25 @@ app.post('/upload', (req, res) => {
 })
 
 // Display Image on our web page
+
 app.get('/display', (req, res) => {
-    // console.log(session)
-    // if (session == undefined) {
-    //     res.json({ is_logged_in: false });
-    // } else if (session != undefined) {
-    //     res.json({ is_logged_in: true });
-    // }
-    //     let pyshell = new PythonShell('camera.py')
-    //     pyshell.kill()
+    console.log(session)
+    if (session == undefined) {
+        res.json({ is_logged_in: false });
+    } else if (session != undefined) {
+        let pyshell = new PythonShell('camera.py')
+        pyshell.kill()
 
-    //     PythonShell.run('camera.py', null, function(err) {
-    //         if (err) {
-    //             throw err
-    //         }
-    //         console.log('Motion Detector Terminated');
-    //     });
-
-    let pyshell = new PythonShell('camera.py')
-    pyshell.kill()
-
-    PythonShell.run('camera.py', null, function(err) {
-        if (err) {
-            throw err
-        }
-        console.log('Motion Detector Terminated');
-
+        PythonShell.run('camera.py', null, function(err) {
+            if (err) {
+                throw err
+            }
+            console.log('Motion Detector Terminated');
+        });
 
         // Select the last entry from the db
         let array = [];
-        connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 2;`,
+        connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
             (err, results) => {
                 console.log(results)
                 try {
@@ -223,7 +212,7 @@ app.get('/display', (req, res) => {
                     res.json({ message: err });
                 }
             });
-    });
+    }
 });
 
 

@@ -6,7 +6,7 @@ import Image from "next/image"
 const Swal = require('sweetalert2')
 
 
-const LoginPage = () => {
+export default function LoginPage() {
     // Handles the submit event on form submit.
   const LoginSubmit = async (event) => {
 
@@ -117,8 +117,6 @@ const LoginPage = () => {
     )
 }
 
-
-export default LoginPage;
 
 
 export async function getStaticProps() {

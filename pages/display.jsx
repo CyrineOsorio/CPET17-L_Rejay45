@@ -10,7 +10,7 @@ import Link from "next/link"
 export default function MotionDetect({ data }) {
 
      // Render into HTML
-     if ( data == null ) {
+     if ( data.imgData == null ) {
         return (
             <div className={styles.container}>
             <ToastContainer />

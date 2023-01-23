@@ -188,31 +188,31 @@ app.get('/display', (req, res) => {
             }
             console.log('Motion Detector Terminated');
         });
-
-        // Select the last entry from the db
-        let array = [];
-        connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
-            (err, results) => {
-                console.log(results)
-                try {
-                    if (results.length > 0) {
-                        for (i = 0; i < results.length; i++) {
-                            array.unshift(results[i])
-                        }
-
-                        // send a json response containg the image data (blob)
-                        res.json({
-                            'imgData': array,
-                            is_logged_in: true
-                        });
-                    } else {
-                        res.json({ message: "Something wen't wrong" });
-                    }
-                } catch {
-                    res.json({ message: err });
-                }
-            });
     }
+    // Select the last entry from the db
+    let array = [];
+    connection.query(`SELECT * FROM ${db_table} ORDER BY id DESC LIMIT 10;`,
+        (err, results) => {
+            console.log(results)
+            try {
+                if (results.length > 0) {
+                    for (i = 0; i < results.length; i++) {
+                        array.unshift(results[i])
+                    }
+
+                    // send a json response containg the image data (blob)
+                    res.json({
+                        'imgData': array,
+                        is_logged_in: true
+                    });
+                } else {
+                    res.json({ message: "Something wen't wrong" });
+                }
+            } catch {
+                res.json({ message: err });
+            }
+        });
+
 });
 
 

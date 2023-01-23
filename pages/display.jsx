@@ -106,7 +106,7 @@ export async function getStaticProps() {
     if ( data.is_logged_in == false ) {
       return {
         redirect: {
-          destination: "/",
+          destination: "/Login",
           permanent: false,
         },
         props: {},

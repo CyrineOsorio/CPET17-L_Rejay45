@@ -70,6 +70,7 @@ app.post('/register', async(req, res) => {
                     res.json({ username: req.body.username });
                 } catch {
                     res.json({ error_code: err.code, message: "Username has already existed" });
+                    console.log(err.code)
                 }
             }
         )

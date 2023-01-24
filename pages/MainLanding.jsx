@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function MainLanding( {data} ) {
-    if (  data.session.username == null ) {
         
     let user = data.session.username;
     
@@ -59,7 +58,6 @@ export default function MainLanding( {data} ) {
         
     </div>
  );
-}
 }
 
 export async function getStaticProps() {

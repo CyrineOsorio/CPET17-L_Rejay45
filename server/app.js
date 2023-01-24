@@ -12,7 +12,6 @@ const { PythonShell } = require('python-shell')
 const app = express();
 const port = 7000;
 var session;
-server.keepAliveTimeout = 61 * 1000;
 
 // listen to port
 app.listen(port);

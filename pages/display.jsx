@@ -73,11 +73,12 @@ export default function MotionDetect({ data }) {
                         let imgSrc = "data:image/png;base64," + base64Image;
                         
                         // Get the date time
-                        let dt = imgData['datetime'];
+                        const dt = imgData['datetime'];
                         
+                        let dt2 = dt.toLocaleString('de-DE');
                         return (
-                            <div className={styles.container}>
-                                <p>DateTime Taken: {dt}</p>
+                            <div className={styles.container1}>
+                                <p>DateTime Taken: {dt2}</p>
                                 <img src={imgSrc}/>
                             </div>
                         )

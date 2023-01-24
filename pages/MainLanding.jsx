@@ -16,7 +16,6 @@ export default function MainLanding( {data} ) {
         <div className={styles.logo}>
             <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
             <div className={styles.menubars}>
-                {/* <a href="http://localhost:3000/display" className={styles.logoutbutton}>Motion</a> */}
                 <a href="http://192.168.1.12:7000/logout" className={styles.logoutbutton}>Logout</a>
             </div>
         </div>
@@ -26,30 +25,15 @@ export default function MainLanding( {data} ) {
                 <div className={styles.usercont}>
                     <div className={styles.headbanner}>
                         <p>Welcome {user}!</p>
-                        <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
+                        <a href="http://192.168.1.7:3000/ResetPass" className={styles.resetpasswordlink}>Change Password</a>
                     </div>
                 </div>
 
 
                 <div className={styles.filesfiles}>
                     <div className={styles.lagayan}>
-                        <div className={styles.photocontainer}>
-                           
-                                <div className={styles.body1_a}>
-                                    <Image src="/images/logingal.png" alt="logingal" className={styles.logingal} width={800} height={500} />
-                                    <div className={styles.paragraph}>
-                                        <p>
-                                             WebCam Motion Detector in Python
-                                        </p>
-                                        <p>
-                                            This python program will allow you to detect motion and also store the date & time detected.
-                                        </p> 
-                                        <br />
-                                        <a href="http://192.168.1.7:3000/display" className={styles.tryme_btn}>Motion</a>
-                                          
-                                    </div>
-                                </div>
-                        </div>
+                        <p>Click the button below to try our application and display the pictures. Press q key to close the camera. </p>
+                        <a href="http://192.168.1.7:3000/display" className={styles.tryme_btn}>Motion</a>
                     </div>
                 </div>
             </div>

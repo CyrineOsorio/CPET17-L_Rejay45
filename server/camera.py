@@ -2,6 +2,7 @@
 import cv2, time, pandas, base64
 # importing datetime class from datetime library
 from datetime import datetime
+import pytz
 
 import requests
 import os
@@ -119,7 +120,10 @@ while True:
     # Appending Start time of motion
     if motion_list[-1] == 1 and motion_list[-2] == 0:
         try:
-            var_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            # eme = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            manilatz = pytz.timezone("Asia/Shanghai")
+            var_time =  datetime.now(manilatz).strftime("%Y-%m-%d_%H-%M-%S")
+
             filename = var_time + '.jpg'
             
             # Save the captured frame

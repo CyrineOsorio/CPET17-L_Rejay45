@@ -79,21 +79,22 @@ const SignupPage = () => {
     // Get the response data from server as JSON.
     // If server returns the name submitted, that means the form works.
     const result = await response.json()
-
+    console.log(result.error_code)
     if ( result.error_code == 'ER_DUP_ENTRY' ) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: result.message,
+        text: "Username has already existed",
       });
     } else {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: result.message,
+        icon: 'success',
+        title: 'Great!',
+        timer: 10000,
+        text: `Sucessfully created the account ${result.username}. You will be redirected to login page.`,
       });
       window.location.replace("http://192.168.1.7:3000/Login")
-      console.log(error)
+      
     }
   }
     return ( 

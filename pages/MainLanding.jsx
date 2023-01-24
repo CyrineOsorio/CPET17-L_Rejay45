@@ -6,7 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-export default function MainLanding() {
+export default function MainLanding( {data} ) {
+
+    let bitch = data.session.username;
     
     return (
     <div className={styles.container}>
@@ -23,7 +25,7 @@ export default function MainLanding() {
             <div className={styles.body1}>
                 <div className={styles.usercont}>
                     <div className={styles.headbanner}>
-                        <p>Welcome!</p>
+                        <p>Welcome {bitch}!</p>
                         <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
                     </div>
                 </div>
@@ -64,6 +66,9 @@ export async function getStaticProps() {
   
     // Get the json response
     const data = await res.json();
+
+    const eme = data.session.username;
+    console.log(eme)
     
     // If user was not logged in, go to login page
     if ( data.is_logged_in == false ) {
@@ -76,5 +81,5 @@ export async function getStaticProps() {
       };
     }
     // If user was logged in, redirect to this current page
-    return { props: {} }
+    return { props: {data} }
   }

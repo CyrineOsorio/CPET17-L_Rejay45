@@ -249,7 +249,7 @@ app.get('/MainLanding', (req, res) => {
     if (session == undefined) {
         res.json({ is_logged_in: false });
     } else if (session != undefined) {
-        res.json({ is_logged_in: true });
+        res.json({ is_logged_in: true, session: session });
     }
 });
 

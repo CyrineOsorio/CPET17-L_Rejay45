@@ -119,7 +119,7 @@ export default function LoginPage() {
 
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     // Fetch data from the server
     const res = await fetch('http://192.168.1.12:7000/Login');
   

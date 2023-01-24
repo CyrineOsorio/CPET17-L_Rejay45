@@ -12,6 +12,7 @@ const { PythonShell } = require('python-shell')
 const app = express();
 const port = 7000;
 var session;
+server.keepAliveTimeout = 61 * 1000;
 
 // listen to port
 app.listen(port);
@@ -231,6 +232,8 @@ app.get('/Login', (req, res) => {
         res.json({ is_logged_in: false });
     } else if (session != undefined) {
         res.json({ is_logged_in: true });
+    } else if (err.code === 'ETIMEDOUT') {
+        console.log('My dish error: ', util.inspect(err, { showHidden: true, depth: 2 }));
     }
 });
 

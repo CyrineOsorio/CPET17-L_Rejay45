@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function MainLanding( {data} ) {
-
+    if (  data.session.username == null ) {
+        
     let user = data.session.username;
     
     return (
@@ -59,6 +60,7 @@ export default function MainLanding( {data} ) {
     </div>
  );
 }
+}
 
 export async function getStaticProps() {
     // Fetch data from the server
@@ -66,9 +68,6 @@ export async function getStaticProps() {
   
     // Get the json response
     const data = await res.json();
-
-    const eme = data.session.username;
-    console.log(eme)
     
     // If user was not logged in, go to login page
     if ( data.is_logged_in == false ) {

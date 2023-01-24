@@ -90,6 +90,7 @@ const SignupPage = () => {
       Swal.fire({
         icon: 'success',
         title: 'Great!',
+        timer: 10000,
         text: `Sucessfully created the account ${result.username}. You will be redirected to login page.`,
       });
       window.location.replace("http://localhost:3000/Login")

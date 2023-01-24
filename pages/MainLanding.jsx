@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function MainLanding( {data} ) {
 
-    let bitch = data.session.username;
+    let user = data.session.username;
     
     return (
     <div className={styles.container}>
@@ -25,7 +25,7 @@ export default function MainLanding( {data} ) {
             <div className={styles.body1}>
                 <div className={styles.usercont}>
                     <div className={styles.headbanner}>
-                        <p>Welcome {bitch}!</p>
+                        <p>Welcome {user}!</p>
                         <a href="/ResetPass" className={styles.resetpasswordlink}>Reset Password</a>
                     </div>
                 </div>

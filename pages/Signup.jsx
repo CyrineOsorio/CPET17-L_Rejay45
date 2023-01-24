@@ -58,7 +58,7 @@ const SignupPage = () => {
     const JSONdata = JSON.stringify(data)
 
     // API endpoint where we send form data.
-    const endpoint = 'http://localhost:7000/register'
+    const endpoint = 'http://192.168.1.12:7000/register'
 
     // Form the request for sending data to the server.
     const options = {
@@ -93,7 +93,7 @@ const SignupPage = () => {
         timer: 10000,
         text: `Sucessfully created the account ${result.username}. You will be redirected to login page.`,
       });
-      window.location.replace("http://localhost:3000/Login")
+      window.location.replace("http://192.168.1.7:3000/Login")
     }
   }
     return ( 
@@ -142,7 +142,7 @@ export default SignupPage;
 
 export async function getStaticProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:7000/signup');
+    const res = await fetch('http://192.168.1.12:7000/signup');
   
     // Get the json response
     const data = await res.json();

@@ -257,5 +257,5 @@ app.get('/MainLanding', (req, res) => {
 
 app.get('/logout', (req, res) => {
     session = undefined;
-    res.redirect('http://localhost:3000/Login');
+    res.redirect('http://192.168.1.7:3000/Login');
 });

@@ -17,7 +17,7 @@ export default function MainLanding( {data} ) {
             <Image src="/images/rejayselcam.png" alt="rejay45logo" className={styles.rejay45logo} width={1000} height={100} />
             <div className={styles.menubars}>
                 {/* <a href="http://localhost:3000/display" className={styles.logoutbutton}>Motion</a> */}
-                <a href="http://localhost:7000/logout" className={styles.logoutbutton}>Logout</a>
+                <a href="http://192.168.1.12:7000/logout" className={styles.logoutbutton}>Logout</a>
             </div>
         </div>
         
@@ -45,7 +45,7 @@ export default function MainLanding( {data} ) {
                                             This python program will allow you to detect motion and also store the date & time detected.
                                         </p> 
                                         <br />
-                                        <a href="http://localhost:3000/display" className={styles.tryme_btn}>Motion</a>
+                                        <a href="http://192.168.1.7:3000/display" className={styles.tryme_btn}>Motion</a>
                                           
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@ export default function MainLanding( {data} ) {
 
 export async function getStaticProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:7000/MainLanding');
+    const res = await fetch('http://192.168.1.12:7000/MainLanding');
   
     // Get the json response
     const data = await res.json();

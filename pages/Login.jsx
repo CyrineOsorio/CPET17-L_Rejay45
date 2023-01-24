@@ -45,7 +45,7 @@ export default function LoginPage() {
     const JSONdata = JSON.stringify(data)
 
     // API endpoint where we send form data.
-    const endpoint = 'http://localhost:7000/login_account'
+    const endpoint = 'http://192.168.1.12:7000/login_account'
 
     // Form the request for sending data to the server.
     const options = {
@@ -68,7 +68,7 @@ export default function LoginPage() {
     console.log(result.message)
 
     if ( result.message == 'Success' ) {
-      window.location.replace("http://localhost:3000/MainLanding")
+      window.location.replace("http://192.168.1.7:3000/MainLanding")
     } else {
       Swal.fire({
         icon: 'error',
@@ -121,7 +121,7 @@ export default function LoginPage() {
 
 export async function getStaticProps() {
     // Fetch data from the server
-    const res = await fetch('http://localhost:7000/Login');
+    const res = await fetch('http://192.168.1.12:7000/Login');
   
     // Get the json response
     const data = await res.json();
